@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" version="3.8" group="editors-xtd" method="upgrade">
+	<name>PLG_CUSTOMFILTERS_CONTENT</name>
+	<creationDate>05.10.2020</creationDate>
+	<author>oleg</author>
+	<authorEmail>your@email.com</authorEmail>
+	<authorUrl>http://your.url.com</authorUrl>
+	<copyright>A copyright</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<version>1.0</version>
+	<description>PLG_CUSTOMFILTERS_CONTENT_XML_DESCRIPTION</description>
+
+	<!-- Scripts to run on installation -->
+	<scriptfile></scriptfile>
+
+	<!-- Language files -->
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.plg_customfilters_content.ini</language>
+		<language tag="en-GB">en-GB/en-GB.plg_customfilters_content.sys.ini</language>
+	</languages>
+
+	<!-- Plugin files -->
+	<files>
+		<folder>language</folder>
+		<filename plugin="customfilters_content">customfilters_content.php</filename>
+
+	</files>
+
+	<!-- Config parameter -->
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="sample"
+					type="text"
+					default="42"
+					label="PLG_SYSTEM_CUSTOMFILTERS_CONTENT_SAMPLE_LABEL"
+					description="PLG_SYSTEM_CUSTOMFILTERS_CONTENT_SAMPLE_DESCRIPTION"
+				/>
+			</fieldset>
+		</fields>
+	</config>
+
+	<!-- Update servers -->
+	<updateservers>
+		<server type="extension" priority="1" name="customfilters_content">https://www.example.com/plg_customfilters_content.xml</server>
+	</updateservers>
+</extension>
