@@ -7,34 +7,59 @@
 	<authorUrl>http://your.url.com</authorUrl>
 	<copyright>A copyright</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-	<version>1.0</version>
+	<version>1.1</version>
 	<description>PLG_CUSTOMFILTERS_CONTENT_XML_DESCRIPTION</description>
 
 	<!-- Scripts to run on installation -->
 	<scriptfile></scriptfile>
 
-	<!-- Language files -->
-	<languages folder="language">
-		<language tag="en-GB">en-GB/en-GB.plg_customfilters_content.ini</language>
-		<language tag="en-GB">en-GB/en-GB.plg_customfilters_content.sys.ini</language>
-	</languages>
-
 	<!-- Plugin files -->
 	<files>
+		<folder>assets</folder>
+		<folder>Helpers</folder>
 		<folder>language</folder>
+		<folder>sql</folder>
+		<folder>tmpl</folder>
 		<filename plugin="customfilters_content">customfilters_content.php</filename>
+		<filename>Helper.php</filename>
+		<filename>README.md</filename>
 
 	</files>
+
+	<install> <!-- Runs on install -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.sql</file>
+		</sql>
+	</install>
+	<update>
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
+	<uninstall> <!-- Runs on uninstall -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.sql</file>
+		</sql>
+	</uninstall>
+
 
 	<!-- Config parameter -->
 	<config>
 		<fields name="params">
+			<fieldset addfieldpath="/libraries/GNZ11/Extensions/Fields" />
+
 			<fieldset name="basic">
+				<field name="version_plugin"
+					   type="version"
+					   path_xml="/plugins/editors-xtd/customfilters_content/customfilters_content.xml"
+					   class="version_plugin "
+					   filter="raw" />
+
 				<field
 					name="sample"
 					type="text"
 					default="42"
-					label="PLG_SYSTEM_CUSTOMFILTERS_CONTENT_SAMPLE_LABEL"
+					label="PLG_SYSTEM_CUSTOMFILTERS_CONTENT_SAMPLE_LABEL111"
 					description="PLG_SYSTEM_CUSTOMFILTERS_CONTENT_SAMPLE_DESCRIPTION"
 				/>
 			</fieldset>
